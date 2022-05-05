@@ -1,0 +1,18 @@
+# ninja log v5
+15	1418	6722618887257247	CMakeFiles/Lab_9_10.dir/Domain/Product.cpp.obj	c2c4b63007fe24a5
+59	1044	6734596360353251	CMakeFiles/Lab_9_10.dir/Tests/Tests.cpp.obj	a3ceb9715b5bef01
+10	1564	6734827632381064	CMakeFiles/Lab_9_10.dir/main.cpp.obj	e47514be5b06a59
+54	1363	6734827033884198	CMakeFiles/Lab_9_10.dir/Repository/Repository.cpp.obj	a44510e2bf528545
+1994	2295	6722618896036024	Lab_9_10.exe	e3199fb5abbe6e4a
+25	4485	6734820225398065	CMakeFiles/Lab_9_10.dir/Repository/Repo.cpp.obj	e1472efba6e418be
+40	1333	6734827033585676	CMakeFiles/Lab_9_10.dir/Repository/RepoInMemory.cpp.obj	589f80d9fe5decc1
+12	1135	6734822642556765	CMakeFiles/Lab_9_10.dir/Repository/RepoInFile.cpp.obj	36118f4b8809562a
+29	1358	6734827033837485	CMakeFiles/Lab_9_10.dir/Domain/Ticket.cpp.obj	c2be7ad9f25740a0
+68	1478	6734827034852927	CMakeFiles/Lab_9_10.dir/Service.cpp.obj	8f1b2ded88f9bc10
+85	1576	6734827036055325	CMakeFiles/Lab_9_10.dir/UI.cpp.obj	a608e847c8bcbacb
+14	2182	6734592864608643	CMakeFiles/Lab_9_10.dir/Domain/Coin.cpp.obj	c8866f8cc6ebb626
+59	4537	6734820228026169	CMakeFiles/Lab_9_10.dir/CoinService.cpp.obj	3a9848e0c5f7f4a2
+1	815	6734828139228634	build.ninja	c88f9d7f1d61f82f
+13	1822	6734828441723836	CMakeFiles/Lab_9_10.dir/main.cpp.obj	e47514be5b06a59
+14	1316	6734835628544934	CMakeFiles/Lab_9_10.dir/Domain/Ticket.cpp.obj	c2be7ad9f25740a0
+1318	1858	6734835633932736	Lab_9_10.exe	8421a0b10135f6dd
