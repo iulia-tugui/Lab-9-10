@@ -5,11 +5,13 @@
 #include "CoinService.h"
 #include "UI.h"
 int main() {
-    RepoInFile<Ticket> repoInFile("products.txt");
-    Service service(repoInFile);
+    RepoInFile<Ticket> repoInFile("tickets.txt");
+    TicketValidator ticketValidator(repoInFile);
+    Service service(repoInFile, ticketValidator);
 
-    RepoInFile<Coin> Coinrepo("coins0.txt");
-    CoinService coinService(Coinrepo);
+    RepoInFile<Coin> Coinrepo("coins.txt");
+    CoinValidator coinValidator(Coinrepo);
+    CoinService coinService(Coinrepo, coinValidator);
 
     Console console(service, coinService);
 

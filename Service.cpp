@@ -4,30 +4,36 @@
 
 #include "Service.h"
 
-Service::Service(IRepo<Ticket> &Irepo): repository(Irepo){}
 
 
-void Service::add(int id, int cod, std::string day, double price) {
-    Ticket ticket(id, cod, day, price);
+void Service::add(int id, int cod, std::string day, double price, int numberOfTickets) {
+    if(!repository.checkId(id)) {
+        throw MyException("Id already exists!");
+    }
+
+    Ticket ticket=Ticket(id, cod, day, price, numberOfTickets);
     repository.add(ticket);
-
 }
 
 std::vector<Ticket> Service::read() {
     return repository.getAll();
 }
 
-void Service::update(int id, int cod, std::string day, double price) {
-    Ticket ticket(id, cod, day, price);
-    repository.update(cod, ticket);
+void Service::update(int id, int cod, std::string day, double price, int numberOfTickets) {
+    Ticket ticket(id, cod, day, price, numberOfTickets);
+
+    if (!repository.checkId(id)) {
+        throw MyException("Invalid id!");
+    }
+
+    repository.update(id, ticket);
+}
+
+void Service::remove(int id) {
+    repository.remove(id);
 
 }
 
-void Service::remove(unsigned int cod) {
-    repository.remove(cod);
-
-}
-
-Ticket Service::getTicket( int cod) {
-    return repository.getEntity(cod);
+Ticket Service::getTicket( int code) {
+    return repository.getEntityByCode(code);
 }

@@ -6,19 +6,19 @@
 #include "Coin.h"
 
 Coin::Coin() {
-    this->code = 0;
+    this->id = 0;
     this->value = 0;
     this->number = 0;
 }
 
-Coin::Coin(unsigned int code, double value, unsigned int number) {
-    this->code = code;
+Coin::Coin(int id, double value, int number) {
+    this->id = id;
     this->value = value;
     this->number = number;
 }
 
 Coin::Coin(const Coin &coin) {
-    this->code = coin.code;
+    this->id = coin.id;
     this->value = coin.value;
     this->number = coin.number;
 }
@@ -32,7 +32,7 @@ Coin::Coin(std::string stringCoin, char separator) {
     }
     if(entities.size() == 3) {
         std::stringstream  c(entities[0]);
-        c >> this->code;
+        c >> this->id;
         std::stringstream v(entities[1]);
         v >> this->value;
         std::stringstream n(entities[2]);
@@ -46,7 +46,7 @@ double Coin::getValue() const {
     return value;
 }
 
-unsigned int Coin::getNumber() const{
+int Coin::getNumber() const{
     return number;
 }
 
@@ -54,7 +54,7 @@ void Coin::setValue(double value)  {
     Coin::value = value;
 }
 
-void Coin::setNumber(unsigned int number) {
+void Coin::setNumber(int number) {
     Coin::number = number;
 }
 
@@ -88,18 +88,19 @@ bool Coin::operator>=(const Coin &rhs) const {
 }
 
 std::string Coin::delimitate(char delimitator) {
-    return std::to_string(this->code) + delimitator +std::to_string(this->value) + delimitator + std::to_string(this->number);
+    return std::to_string(this->id) + delimitator +std::to_string(this->value) + delimitator + std::to_string(this->number);
 }
 
 std::ostream &operator<<(std::ostream &os, const Coin &coin) {
-    os <<"Coin{" <<'\n' << "value: " << coin.value << ", number: " << coin.number << '\n' << '}' << '\n';
+    os <<"Coin{" <<'\n' << "id: " << coin.id << '\n' << "value: " << coin.value << '\n' <<  "number: " << coin.number << '\n' << '}' << '\n';
     return os;
 }
 
-unsigned int Coin::getCode() const {
-    return this->code;
+int Coin::getId() const {
+    return this->id;
 }
 
-void Coin::setCode(unsigned int code) {
-    this->code = code;
+void Coin::setId(int id) {
+    this->id = id;
 }
+

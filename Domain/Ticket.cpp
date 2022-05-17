@@ -10,15 +10,16 @@ using namespace std;
 Ticket::Ticket() {
     this->id = 0;
     this->cod = 0;
-    this->day = nullptr;
     this->price = 0;
+    this->numberOfTickets = 0;
 }
 
-Ticket::Ticket(int newId, int newCod, string newDay, double newPrice) {
+Ticket::Ticket(int newId, int newCod, string newDay, double newPrice, int newNumberOfTickets) {
     this->id = newId;
     this->cod = newCod;
     this->day = newDay;
     this->price = newPrice;
+    this->numberOfTickets = newNumberOfTickets;
 }
 
 Ticket::Ticket(const Ticket &ticket) {
@@ -26,6 +27,7 @@ Ticket::Ticket(const Ticket &ticket) {
     this->cod=ticket.cod;
     this->day=ticket.day;
     this->price=ticket.price;
+    this->numberOfTickets = ticket.numberOfTickets;
 }
 
 void Ticket::setCode(int newCode) {
@@ -38,6 +40,10 @@ void Ticket::setDay(string newDay) {
 
 void Ticket::setPrice(double newPrice) {
     this->price = newPrice;
+}
+
+void Ticket::setId(int newId){
+    this->id = newId;
 }
 
 int Ticket::getCode() const {
@@ -57,13 +63,9 @@ double Ticket::getPrice() const {
 }
 
 string Ticket::delimitate(char delimitator) {
-    return std::to_string(this->id) + delimitator + std::to_string(this->cod) + this->day + delimitator +std::to_string(this->price);
+    return std::to_string(this->id) + delimitator + std::to_string(this->cod) + delimitator + this->day + delimitator +std::to_string(this->price);
 }
 
-ostream &operator<<(ostream &os, const Ticket &ticket){
-    os<<"Ticket {"<<endl<<"Id: "<<ticket.id<<endl<<"Cod: "<<ticket.cod<<endl<<"Day: "<<ticket.day<<endl<<"Price: "<<ticket.price<<'}'<<endl;
-    return os;
-}
 
 Ticket::Ticket(string stringTicket, char separator) {
     std::vector<std::string> entities;
@@ -72,7 +74,7 @@ Ticket::Ticket(string stringTicket, char separator) {
     while (getline (ss, object, separator)) {
         entities.push_back(object);
     }
-    if(entities.size() == 3) {
+    if(entities.size() == 4) {
         std::stringstream c(entities[0]);
         c >> this->id;
         std::stringstream a(entities[1]);
@@ -81,6 +83,19 @@ Ticket::Ticket(string stringTicket, char separator) {
         std::stringstream p(entities[3]);
         p >> this->price;
     }
+}
+
+ostream &operator<<(ostream &os, const Ticket &ticket) {
+        os <<"Ticket{" <<'\n' << "id: " << ticket.id << '\n' <<  "cod: " << ticket.cod << '\n' << "day:" << ticket.day <<'\n' << "price:" <<ticket.price <<'}' << '\n';
+        return os;
+}
+
+void Ticket::setNumberOfTickets(int newNumberOfTickets) {
+    this->numberOfTickets = newNumberOfTickets;
+}
+
+int Ticket::getNumberOfTickets() const {
+    return numberOfTickets;
 }
 
 

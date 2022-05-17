@@ -7,6 +7,7 @@
 #include "../Domain/Ticket.h"
 #include <vector>
 #include "Repo.h"
+#include "../Domain/MyException.h"
 
 template<class T> class RepoInMemory: public IRepo<T>{
 private:
@@ -24,29 +25,40 @@ public:
         return entities;
     }
 
-    void update(unsigned  int code, T entity) override{
+    void update(int id, T entity) override{
         for(int i=0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 entities[i] = entity;
-                entities[i].setCode(code);
+                entities[i].setId(id);
             }
         }
     }
 
-    void remove(unsigned int code){
+    void remove(int id){
         for(int i = 0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 entities.erase(entities.begin() + i);
                 i = entities.size();
             }
         }
     }
-    T getEntity(unsigned int code){
+
+    T getEntity(int id){
         for(int i =0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 return entities[i];
             }
         }
+
+        throw MyException("Entity does not exist!");
+    }
+    T getEntityByCode(int cod){
+        for(int i=0; i< entities.size(); i++){
+            if(entities[i].getCode() == cod){
+                return entities[i];
+            }
+        }
+        throw MyException("Entity does not exist!");
     }
 };
 

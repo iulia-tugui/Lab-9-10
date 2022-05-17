@@ -12,28 +12,32 @@
 
 
 class Coin {
+
 private:
-    unsigned int code;
+    int id;
     double value;
-    unsigned int number;
+    int number;
 public:
     Coin();
-    Coin(unsigned int code, double value, unsigned int number);
+    Coin(double value, int number) : Coin(0, value, number) {};
+    Coin(int id, double value, int number);
     Coin(const Coin &coin);
     Coin(std::string stringCoin, char separator);
     ~Coin() = default;
 
-    unsigned int getCode() const;
+    int getId() const;
 
-    void setCode(unsigned int code);
+    int getCode() {};
+
+    void setId(int id);
 
     double getValue() const;
 
-    unsigned int getNumber() const;
+    int getNumber() const;
 
     void setValue(double value);
 
-    void setNumber(unsigned int number);
+    void setNumber(int number);
 
     bool operator==(const Coin &rhs) const;
 

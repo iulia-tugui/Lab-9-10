@@ -29,18 +29,18 @@ public:
         return this->entities;
     };
 
-    void update(unsigned int code, T entity) override{
+    void update( int id, T entity) override{
         for(int i = 0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 entities[i] = entity;
-                entities[i].setCode(code);
+                entities[i].setId(id);
             }
         }
     }
 
-    void remove(unsigned int code) override{
+    void remove(int id) override{
         for(int i=0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 entities.erase(entities.begin() + i);
                 this->saveToFile();
                 i = entities.size();
@@ -65,12 +65,23 @@ public:
         }
     }
 
-    T getEntity(unsigned int code){
+    T getEntityById(int id){
         for(int i = 0; i < entities.size(); i++){
-            if(entities[i].getCode() == code){
+            if(entities[i].getId() == id){
                 return entities[i];
             }
         }
+
+        throw MyException("Entity does not exist!");
+    }
+
+    T getEntityByCode(int cod){
+        for(int i=0; i< entities.size(); i++){
+            if(entities[i].getCode() == cod){
+                return entities[i];
+            }
+        }
+        throw MyException("Entity does not exist!");
     }
 };
 

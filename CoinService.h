@@ -7,24 +7,31 @@
 
 #include "Domain/Coin.h"
 #include "Repository/Repo.h"
+#include "Validator/CoinValidator.h"
 
 class CoinService {
 private:
     IRepo<Coin> &repo;
-    unsigned int coinCode = 0;
+    CoinValidator coinValidator;
 public:
-    CoinService(IRepo<Coin> &IRepo);
+    CoinService(IRepo<Coin> &IRepo, CoinValidator coinValidator1): repo{
+                  IRepo},                                                   coinValidator{
+                                                                         std::move(
+                                                                                 coinValidator1)} {};
+
     ~CoinService() = default;
 
-    void add(double value, unsigned int number);
+    void add(int id, double value, int number);
+
+    void add(Coin coin);
 
     std:: vector<Coin> read();
 
-    void update(unsigned int code, double value, unsigned int number);
+    void update(int id, double value, int number);
 
-    void remove(unsigned int code);
+    void remove(int id);
 
-    bool verifyChange(double change);
+    std::vector<Coin> getChange(double change);
 
 
 };

@@ -4,12 +4,11 @@
 
 #include "CoinService.h"
 
-CoinService::CoinService(IRepo<Coin> &IRepo): repo(IRepo) {}
-
-void CoinService::add(double value, unsigned int number) {
-    Coin coin(this->coinCode,value, number);
+void CoinService::add(int id, double value, int number) {
+    Coin coin(id, value, number);
+    this->coinValidator.setCoin(coin);
+    this->coinValidator.validate();
     repo.add(coin);
-    this->coinCode++;
 
 }
 
@@ -17,29 +16,55 @@ std::vector<Coin> CoinService::read() {
     return repo.getAll();
 }
 
-void CoinService::update(unsigned int code, double value, unsigned int number) {
-    Coin coin(code, value, number);
-    repo.update(code, coin);
+void CoinService::update(int id, double value, int number) {
+    Coin coin(id, value, number);
+    this->coinValidator.setCoin(coin);
+    this->coinValidator.validate();
+    repo.update(id, coin);
 
 }
 
-void CoinService::remove(unsigned int code) {
-    repo.remove(code);
+void CoinService::remove(int id) {
+    repo.remove(id);
 
 }
 
-bool CoinService::verifyChange(double change) {
+std::vector<Coin> CoinService::getChange(double change) {
     std::vector<Coin> coins = repo.getAll();
-    for(int i = coins.size() -1; i >= 0; i--){
-        if(coins[i].getValue() <= change){
-            unsigned int number = coins[i].getNumber();
-            double value = coins[i].getValue();
-            while(change >= coins[i].getValue() && number > 0){
-                change -= value;
-                number--;
-            }
+    std::vector<Coin> changeCoins = std::vector<Coin>();
+    std::vector<Coin> updates = std::vector<Coin>();
+    for (int index = coins.size() - 1; index >= 0; --index) {
+        if (coins[index].getValue() <= change) {
+            int nrReturnedCoins = std::min((int) (change / coins[index].getValue()), coins[index].getNumber());
+            changeCoins.emplace_back(coins[index].getId(), coins[index].getValue(), nrReturnedCoins);
+            change -= coins[index].getValue() * nrReturnedCoins;
+            updates.emplace_back(coins[index].getId(), coins[index].getValue(), coins[index].getNumber() - nrReturnedCoins);
         }
-
     }
-    return change == 0;
+
+    if(change > 0) {
+        throw MyException("Could not give change!");
+    }
+
+    for(const Coin& coin : updates) {
+        if(coin.getNumber() == 0) {
+            repo.remove(coin.getId());
+        } else {
+            repo.update(coin.getId(), coin);
+        }
+    }
+
+    return changeCoins;
+}
+
+void CoinService::add(Coin newCoin) {
+    std::vector<Coin> coins = repo.getAll();
+
+    int mxId = 1;
+    for(const Coin& coin : coins) {
+        mxId = std::max(mxId, coin.getId());
+    }
+
+    newCoin.setId(mxId + 1);
+    repo.add(newCoin);
 };

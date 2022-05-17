@@ -14,10 +14,11 @@ private:
     int cod;
     string day;
     double price;
+    int numberOfTickets;
 public:
     Ticket();
 
-    Ticket(int id, int newCod, string newDay, double newPrice);
+    Ticket(int newId, int newCod, string newDay, double newPrice, int numberOfTickets);
 
     Ticket(const Ticket &ticket);
 
@@ -31,6 +32,10 @@ public:
 
     void setPrice(double newPrice);
 
+    void setId(int newId);
+
+    void setNumberOfTickets(int newNumberOfTickets);
+
     int getCode() const;
 
     string getDay();
@@ -38,6 +43,8 @@ public:
     int getId() const;
 
     double getPrice() const;
+
+    int getNumberOfTickets() const;
 
     string delimitate(char delimitator);
 
