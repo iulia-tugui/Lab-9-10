@@ -7,11 +7,9 @@
 
 
 void Service::add(int id, int cod, std::string day, double price, int numberOfTickets) {
-    if(!repository.checkId(id)) {
-        throw MyException("Id already exists!");
-    }
-
     Ticket ticket=Ticket(id, cod, day, price, numberOfTickets);
+    this->ticketValidator.setTicket(ticket);
+    this->ticketValidator.validate();
     repository.add(ticket);
 }
 
@@ -21,7 +19,8 @@ std::vector<Ticket> Service::read() {
 
 void Service::update(int id, int cod, std::string day, double price, int numberOfTickets) {
     Ticket ticket(id, cod, day, price, numberOfTickets);
-
+    this->ticketValidator.setTicket(ticket);
+    this->ticketValidator.validate();
     if (!repository.checkId(id)) {
         throw MyException("Invalid id!");
     }

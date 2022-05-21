@@ -22,9 +22,9 @@ bool TicketValidator::doesExit() {
 
 void TicketValidator::update() {
     if (this->ticket.getCode() <= 0) {
-        throw MyException("Biletul trebuie sa aiba codul numar pozitiv.");
+        throw MyException("Biletul trebuie sa aiba codul numar strict pozitiv.");
     }else if (this->ticket.getPrice() <= 0) {
-        throw MyException("Biletul trebuie sa aiba pretul pozitiv.");
+        throw MyException("Biletul trebuie sa aiba pretul strict pozitiv.");
     } else if (this->ticket.getDay().empty()) {
         throw MyException("Biletul trebuie sa aiba o zi");
     }

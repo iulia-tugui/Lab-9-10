@@ -17,7 +17,7 @@ public:
 
     void validate();
 
-    void setProduct(Ticket other) { this->ticket = other; };
+    void setTicket(Ticket other) { this->ticket = other; };
 
     bool doesExit();
 

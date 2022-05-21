@@ -23,10 +23,11 @@ bool CoinValidator::doesExit() {
 void CoinValidator::update() {
 
     if (this->coin.getId() <= 0) {
-        throw MyException("Moneda trebuie sa aiba id-ul numar pozitiv.");
-    } else if (this->coin.getNumber() <= 0) {
+        throw MyException("Moneda trebuie sa aiba id-ul numar strict pozitiv.");
+    } else if (this->coin.getNumber() < 0) {
         throw MyException("Moneda trebuie sa aiba numarul strict pozitiv");
-    } else if (this->coin.getValue() <= 0) {
+    } else if (this->coin.getValue() <  0) {
         throw MyException("Moneda trebuie sa aiba valoarea strict pozitiva");
     }
+
 }

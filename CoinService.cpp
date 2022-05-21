@@ -42,9 +42,9 @@ std::vector<Coin> CoinService::getChange(double change) {
         }
     }
 
-    if(change > 0) {
-        throw MyException("Could not give change!");
-    }
+    //if(change > 0) {
+    //    throw MyException("Could not give change!");
+   // }
 
     for(const Coin& coin : updates) {
         if(coin.getNumber() == 0) {

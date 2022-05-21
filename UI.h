@@ -19,9 +19,17 @@ public:
     void showUserMenu();
     void showMainMenu();
     void runMenu();
-
     void userView();
     void adminView();
+    void addTicket();
+    void modifyTicket();
+    void deleteTicket();
+    void showAllTickets();
+    void addCoin();
+    void modifyCoin();
+    void deleteCoin();
+    void showAllCoins();
+    void buyATicket();
 };
 
 #endif //LAB_9_10_UI_H

@@ -4,7 +4,10 @@
 #include "Service.h"
 #include "CoinService.h"
 #include "UI.h"
+#include "Tests/TestAll/TestAll.h"
 int main() {
+    TestAll test;
+    test.allTests();
     RepoInFile<Ticket> repoInFile("tickets.txt");
     TicketValidator ticketValidator(repoInFile);
     Service service(repoInFile, ticketValidator);

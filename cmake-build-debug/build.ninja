@@ -121,6 +121,36 @@ build CMakeFiles/Lab_9_10.dir/UI.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users
   OBJECT_DIR = CMakeFiles\Lab_9_10.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir
 
+build CMakeFiles/Lab_9_10.dir/Tests/TestDomain/TestCoinDomain.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users/Public/Lab$ 9-10/Tests/TestDomain/TestCoinDomain.cpp || cmake_object_order_depends_target_Lab_9_10
+  DEP_FILE = CMakeFiles\Lab_9_10.dir\Tests\TestDomain\TestCoinDomain.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab_9_10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir\Tests\TestDomain
+
+build CMakeFiles/Lab_9_10.dir/Tests/TestDomain/TestTicketDomain.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users/Public/Lab$ 9-10/Tests/TestDomain/TestTicketDomain.cpp || cmake_object_order_depends_target_Lab_9_10
+  DEP_FILE = CMakeFiles\Lab_9_10.dir\Tests\TestDomain\TestTicketDomain.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab_9_10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir\Tests\TestDomain
+
+build CMakeFiles/Lab_9_10.dir/Tests/TestAll/TestAll.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users/Public/Lab$ 9-10/Tests/TestAll/TestAll.cpp || cmake_object_order_depends_target_Lab_9_10
+  DEP_FILE = CMakeFiles\Lab_9_10.dir\Tests\TestAll\TestAll.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab_9_10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir\Tests\TestAll
+
+build CMakeFiles/Lab_9_10.dir/Tests/TestRepository/TestTicketRepository.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users/Public/Lab$ 9-10/Tests/TestRepository/TestTicketRepository.cpp || cmake_object_order_depends_target_Lab_9_10
+  DEP_FILE = CMakeFiles\Lab_9_10.dir\Tests\TestRepository\TestTicketRepository.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab_9_10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir\Tests\TestRepository
+
+build CMakeFiles/Lab_9_10.dir/Tests/TestRepository/TestTicketRepoInFile.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users/Public/Lab$ 9-10/Tests/TestRepository/TestTicketRepoInFile.cpp || cmake_object_order_depends_target_Lab_9_10
+  DEP_FILE = CMakeFiles\Lab_9_10.dir\Tests\TestRepository\TestTicketRepoInFile.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Lab_9_10.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_9_10.dir\Tests\TestRepository
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab_9_10
@@ -129,7 +159,7 @@ build CMakeFiles/Lab_9_10.dir/UI.cpp.obj: CXX_COMPILER__Lab_9_10_Debug C$:/Users
 #############################################
 # Link the executable Lab_9_10.exe
 
-build Lab_9_10.exe: CXX_EXECUTABLE_LINKER__Lab_9_10_Debug CMakeFiles/Lab_9_10.dir/main.cpp.obj CMakeFiles/Lab_9_10.dir/Domain/Ticket.cpp.obj CMakeFiles/Lab_9_10.dir/Domain/Coin.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/Repository.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/Repo.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/RepoInFile.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/RepoInMemory.cpp.obj CMakeFiles/Lab_9_10.dir/Service.cpp.obj CMakeFiles/Lab_9_10.dir/CoinService.cpp.obj CMakeFiles/Lab_9_10.dir/Validator/CoinValidator.cpp.obj CMakeFiles/Lab_9_10.dir/Validator/TicketValidator.cpp.obj CMakeFiles/Lab_9_10.dir/UI.cpp.obj
+build Lab_9_10.exe: CXX_EXECUTABLE_LINKER__Lab_9_10_Debug CMakeFiles/Lab_9_10.dir/main.cpp.obj CMakeFiles/Lab_9_10.dir/Domain/Ticket.cpp.obj CMakeFiles/Lab_9_10.dir/Domain/Coin.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/Repository.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/Repo.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/RepoInFile.cpp.obj CMakeFiles/Lab_9_10.dir/Repository/RepoInMemory.cpp.obj CMakeFiles/Lab_9_10.dir/Service.cpp.obj CMakeFiles/Lab_9_10.dir/CoinService.cpp.obj CMakeFiles/Lab_9_10.dir/Validator/CoinValidator.cpp.obj CMakeFiles/Lab_9_10.dir/Validator/TicketValidator.cpp.obj CMakeFiles/Lab_9_10.dir/UI.cpp.obj CMakeFiles/Lab_9_10.dir/Tests/TestDomain/TestCoinDomain.cpp.obj CMakeFiles/Lab_9_10.dir/Tests/TestDomain/TestTicketDomain.cpp.obj CMakeFiles/Lab_9_10.dir/Tests/TestAll/TestAll.cpp.obj CMakeFiles/Lab_9_10.dir/Tests/TestRepository/TestTicketRepository.cpp.obj CMakeFiles/Lab_9_10.dir/Tests/TestRepository/TestTicketRepoInFile.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab_9_10.dir
